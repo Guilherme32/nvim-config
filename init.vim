@@ -28,14 +28,16 @@ call plug#begin()
     Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 
     Plug 'mhinz/vim-startify'
-    " Pra add dps: Surround, Commentary, Symbols-outline
 
     Plug 'MunifTanjim/nui.nvim'
     Plug 'folke/noice.nvim'
     Plug 'rcarriga/nvim-notify'
     Plug 'kyazdani42/nvim-tree.lua'
 
+    Plug 'sainnhe/everforest'
+
     Plug 'petertriho/nvim-scrollbar'
+    " Pra add dps: Surround, Commentary, Symbols-outline, lazygit
 
     " Removidos
     " Plug 'sidebar-nvim/sidebar.nvim'
@@ -65,7 +67,10 @@ if exists('+termguicolors')
 endif
 
 set background=dark
-colorscheme tokyonight-moon
+let g:everforest_background = 'hard'
+colorscheme everforest
+"colorscheme lunaperche
+"colorscheme tokyonight-moon
 "highlight SignColumn guibg=#282828
 "highlight ColorColumn guibg=#282828
 "highlight DiagnosticSignError guibg=#282828 guifg=#f0edec
@@ -216,7 +221,7 @@ lua <<EOF
 require'nvim-treesitter.configs'.setup {
     ensure_installed = {"rust", "markdown", "markdown_inline", "python",
                         "html", "javascript", "latex", "lua", "vim", "regex",
-                        "bash", "markdown", "markdown_inline"},
+                        "bash", "markdown", "markdown_inline", "haskell"},
     highlight = {
         enable = true,
         additional_vim_regex_highlighting = false,
@@ -267,3 +272,4 @@ lua require("noice_setup")
 
 lua require("scrollbar").setup()
 
+let g:vimtex_compiler_latexmk = { "build_dir": "./build" }
