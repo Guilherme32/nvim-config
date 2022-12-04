@@ -37,7 +37,9 @@ call plug#begin()
     Plug 'sainnhe/everforest'
 
     Plug 'petertriho/nvim-scrollbar'
-    " Pra add dps: Surround, Commentary, Symbols-outline, lazygit
+    Plug 'kylechui/nvim-surround'
+    Plug 'tpope/vim-commentary'
+    " Pra add dps: Symbols-outline, lazygit
 
     " Removidos
     " Plug 'sidebar-nvim/sidebar.nvim'
@@ -123,7 +125,7 @@ nnoremap <silent> z8 <Cmd>set foldlevel=8<CR>
 sign define DiagnosticSignError text=💀 texthl=DiagnosticSignError linehl= numhl=
 sign define DiagnosticSignWarn text=🌊 texthl=DiagnosticSignWarn linehl= numhl=
 sign define DiagnosticSignInfo text=👾 texthl=DiagnosticSignInfo linehl= numhl=
-sign define DiagnosticSignHint text=🌌 texthl=DiagnosticSignHint linehl= numhl=
+sign define DiagnosticSignHint text=🍂 texthl=DiagnosticSignHint linehl= numhl=
 
 lua <<EOF
 local nvim_lsp = require'lspconfig'
@@ -273,3 +275,6 @@ lua require("noice_setup")
 lua require("scrollbar").setup()
 
 let g:vimtex_compiler_latexmk = { "build_dir": "./build" }
+
+lua require("nvim-surround").setup()
+
